@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Référence de couleurs HTML (EN / FR)</title>
+  <style>
+    :root {
+    --bg: #181818;
+    --card: #151515;
+    --border: #262626;
+    --text: #f2f2f2;
+    --muted: #9f9f9f;
+    --accent: #afafaf;
+    --accent-soft: rgba(128, 128, 128, 0.12);
+    }
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #292929 0, #101010 55%);
+      color: var(--text);
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 2.2rem;
+      letter-spacing: 0.03em;
+    }
+
+    h2 {
+      margin: 2.5rem 0 0.75rem;
+      font-size: 1.35rem;
+    }
+
+    p {
+      max-width: 60rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .hint {
+      padding: 0.6rem 0.9rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      margin: 0.75rem 0 1.5rem;
+    }
+
+    .hint-kbd {
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      background: rgba(30,30,30,0.9);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.8rem;
+    }
+
+    .section-card {
+      background: radial-gradient(circle at top left, rgba(163,163,163,0.16), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(30,30,30,0.9), #101010 60%);
+      border-radius: 1rem;
+      padding: 1.2rem 1.2rem 1.4rem;
+      border: 1px solid rgba(163,163,163,0.25);
+      box-shadow: 0 18px 45px rgba(30,30,30,0.7);
+      margin-bottom: 1.8rem;
+      overflow: auto;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 700px;
+      font-size: 0.88rem;
+    }
+
+    thead {
+      background: rgba(30,30,30,0.9);
+      position: sticky;
+      top: -1.2rem;
+      z-index: 5;
+    }
+
+    tr {
+      padding:0;
+    }
+
+    th, td {
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    th {
+        padding: 0.9rem 0.7rem;
+    }
+
+    td {
+        padding: 0 0.7rem;
+    }
+
+    th {
+      font-weight: 600;
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    tbody tr:nth-child(even) {
+      background: rgba(30,30,30,0.6);
+    }
+
+    tbody tr:nth-child(odd) {
+      background: rgba(30,30,30,0.85);
+    }
+
+    .swatch {
+      width: 4rem;
+      height: 2.2rem;
+    }
+
+    .hex-copy {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      cursor: pointer;
+      padding: 0.12rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(163,163,163,0.4);
+      background: rgba(30,30,30,0.85);
+      transition: border-color 120ms ease, background-color 120ms ease, transform 80ms ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .hex-copy:hover {
+      border-color: var(--accent);
+      background: rgba(30,30,30,1);
+      transform: translateY(-1px);
+    }
+
+    .hex-copy:active {
+      transform: translateY(0);
+    }
+
+    .hex-copy::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(163,163,163,0.7);
+    }
+
+    .hex-copy.copied::before {
+      background: #22c55e;
+    }
+
+    .hex-copy.copied::after {
+      content: "Copié!";
+      margin-left: 0.35rem;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #22c55e;
+    }
+
+    .category-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .category-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    @media (max-width: 800px) {
+      body {
+        padding: 1rem;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Palette de couleurs HTML avec noms EN / FR</h1>
+  <p>
+    Clique sur un code hexadécimal pour le copier dans ton presse-papiers. Les noms français sont proposés
+    comme vocabulaire « graphiste humain » et ne sont pas des standards officiels, mais ça aide à parler des couleurs.
+  </p>
+  <div class="hint">
+    Astuce&nbsp;: tu peux rechercher dans la page avec
+    <span class="hint-kbd">Ctrl</span> + <span class="hint-kbd">F</span> / 
+    <span class="hint-kbd">⌘</span> + <span class="hint-kbd">F</span> pour trouver un nom précis.
+  </div>
+
+  <!-- ROUGES -->
+  <div class="section-card">
+    <div class="category-label">
+      <span class="category-dot"></span>
+      Rouge
+    </div>
+    <h2>Rouges</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Aperçu</th>
+          <th>Couleur HTML</th>
+          <th>Français</th>
+          <th>Hex</th>
+          <th>RGB</th>
+          <th>HSL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="swatch" style="background-color:#CD5C5C;"></div></td>
+          <td>IndianRed</td>
+          <td>Rouge indien</td>
+          <td><span class="hex-copy" data-hex="CD5C5C">#CD5C5C</span></td>
+          <td>205, 92, 92</td>
+          <td>0, 53, 58</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#F08080;"></div></td>
+          <td>LightCoral</td>
+          <td>Corail clair</td>
+          <td><span class="hex-copy" data-hex="F08080">#F08080</span></td>
+          <td>240, 128, 128</td>
+          <td>0, 79, 72</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FA8072;"></div></td>
+          <td>Salmon</td>
+          <td>Saumon</td>
+          <td><span class="hex-copy" data-hex="FA8072">#FA8072</span></td>
+          <td>250, 128, 114</td>
+          <td>6, 93, 71</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#E9967A;"></div></td>
+          <td>DarkSalmon</td>
+          <td>Saumon foncé</td>
+          <td><span class="hex-copy" data-hex="E9967A">#E9967A</span></td>
+          <td>233, 150, 122</td>
+          <td>15, 72, 70</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FFA07A;"></div></td>
+          <td>LightSalmon</td>
+          <td>Saumon clair</td>
+          <td><span class="hex-copy" data-hex="FFA07A">#FFA07A</span></td>
+          <td>255, 160, 122</td>
+          <td>17, 100, 74</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#DC143C;"></div></td>
+          <td>Crimson</td>
+          <td>Cramoisi</td>
+          <td><span class="hex-copy" data-hex="DC143C">#DC143C</span></td>
+          <td>220, 20, 60</td>
+          <td>348, 83, 47</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FF0000;"></div></td>
+          <td>Red</td>
+          <td>Rouge</td>
+          <td><span class="hex-copy" data-hex="FF0000">#FF0000</span></td>
+          <td>255, 0, 0</td>
+          <td>0, 100, 50</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#B22222;"></div></td>
+          <td>FireBrick</td>
+          <td>Brique</td>
+          <td><span class="hex-copy" data-hex="B22222">#B22222</span></td>
+          <td>178, 34, 34</td>
+          <td>0, 68, 42</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#8B0000;"></div></td>
+          <td>DarkRed</td>
+          <td>Rouge foncé</td>
+          <td><span class="hex-copy" data-hex="8B0000">#8B0000</span></td>
+          <td>139, 0, 0</td>
+          <td>0, 100, 27</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ROSES -->
+  <div class="section-card">
+    <div class="category-label">
+      <span class="category-dot"></span>
+      Rose
+    </div>
+    <h2>Roses</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Aperçu</th>
+          <th>Nom (EN)</th>
+          <th>Nom (FR)</th>
+          <th>Hex</th>
+          <th>RGB</th>
+          <th>HSL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="swatch" style="background-color:#FFC0CB;"></div></td>
+          <td>Pink</td>
+          <td>Rose</td>
+          <td><span class="hex-copy" data-hex="FFC0CB">#FFC0CB</span></td>
+          <td>255, 192, 203</td>
+          <td>350, 100, 88</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FFB6C1;"></div></td>
+          <td>LightPink</td>
+          <td>Rose clair</td>
+          <td><span class="hex-copy" data-hex="FFB6C1">#FFB6C1</span></td>
+          <td>255, 182, 193</td>
+          <td>351, 100, 86</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FF69B4;"></div></td>
+          <td>HotPink</td>
+          <td>Rose vif</td>
+          <td><span class="hex-copy" data-hex="FF69B4">#FF69B4</span></td>
+          <td>255, 105, 180</td>
+          <td>330, 100, 71</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FF1493;"></div></td>
+          <td>DeepPink</td>
+          <td>Rose profond</td>
+          <td><span class="hex-copy" data-hex="FF1493">#FF1493</span></td>
+          <td>255, 20, 147</td>
+          <td>328, 100, 54</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#C71585;"></div></td>
+          <td>MediumVioletRed</td>
+          <td>Rouge violet moyen</td>
+          <td><span class="hex-copy" data-hex="C71585">#C71585</span></td>
+          <td>199, 21, 133</td>
+          <td>322, 81, 43</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#DB7093;"></div></td>
+          <td>PaleVioletRed</td>
+          <td>Rouge violacé pâle</td>
+          <td><span class="hex-copy" data-hex="DB7093">#DB7093</span></td>
+          <td>219, 112, 147</td>
+          <td>340, 60, 65</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ORANGES -->
+  <div class="section-card">
+    <div class="category-label">
+      <span class="category-dot"></span>
+      Orange
+    </div>
+    <h2>Oranges</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Aperçu</th>
+          <th>Nom (EN)</th>
+          <th>Nom (FR)</th>
+          <th>Hex</th>
+          <th>RGB</th>
+          <th>HSL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="swatch" style="background-color:#FFA07A;"></div></td>
+          <td>LightSalmon</td>
+          <td>Saumon clair</td>
+          <td><span class="hex-copy" data-hex="FFA07A">#FFA07A</span></td>
+          <td>255, 160, 122</td>
+          <td>17, 100, 74</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FF7F50;"></div></td>
+          <td>Coral</td>
+          <td>Corail</td>
+          <td><span class="hex-copy" data-hex="FF7F50">#FF7F50</span></td>
+          <td>255, 127, 80</td>
+          <td>16, 100, 66</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FF6347;"></div></td>
+          <td>Tomato</td>
+          <td>Rouge tomate</td>
+          <td><span class="hex-copy" data-hex="FF6347">#FF6347</span></td>
+          <td>255, 99, 71</td>
+          <td>9, 100, 64</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FF4500;"></div></td>
+          <td>OrangeRed</td>
+          <td>Rouge orangé</td>
+          <td><span class="hex-copy" data-hex="FF4500">#FF4500</span></td>
+          <td>255, 69, 0</td>
+          <td>16, 100, 50</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FF8C00;"></div></td>
+          <td>DarkOrange</td>
+          <td>Orange foncé</td>
+          <td><span class="hex-copy" data-hex="FF8C00">#FF8C00</span></td>
+          <td>255, 140, 0</td>
+          <td>33, 100, 50</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FFA500;"></div></td>
+          <td>Orange</td>
+          <td>Orange</td>
+          <td><span class="hex-copy" data-hex="FFA500">#FFA500</span></td>
+          <td>255, 165, 0</td>
+          <td>39, 100, 50</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- JAUNES -->
+  <div class="section-card">
+    <div class="category-label">
+      <span class="category-dot"></span>
+      Jaune
+    </div>
+    <h2>Jaunes</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Aperçu</th>
+          <th>Nom (EN)</th>
+          <th>Nom (FR)</th>
+          <th>Hex</th>
+          <th>RGB</th>
+          <th>HSL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="swatch" style="background-color:#FFD700;"></div></td>
+          <td>Gold</td>
+          <td>Or</td>
+          <td><span class="hex-copy" data-hex="FFD700">#FFD700</span></td>
+          <td>255, 215, 0</td>
+          <td>51, 100, 50</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FFFF00;"></div></td>
+          <td>Yellow</td>
+          <td>Jaune</td>
+          <td><span class="hex-copy" data-hex="FFFF00">#FFFF00</span></td>
+          <td>255, 255, 0</td>
+          <td>60, 100, 50</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FFFFE0;"></div></td>
+          <td>LightYellow</td>
+          <td>Jaune pâle</td>
+          <td><span class="hex-copy" data-hex="FFFFE0">#FFFFE0</span></td>
+          <td>255, 255, 224</td>
+          <td>60, 100, 94</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FFFACD;"></div></td>
+          <td>LemonChiffon</td>
+          <td>Chiffon citron</td>
+          <td><span class="hex-copy" data-hex="FFFACD">#FFFACD</span></td>
+          <td>255, 250, 205</td>
+          <td>54, 100, 90</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FAFAD2;"></div></td>
+          <td>LightGoldenrodYellow</td>
+          <td>Jaune doré clair</td>
+          <td><span class="hex-copy" data-hex="FAFAD2">#FAFAD2</span></td>
+          <td>250, 250, 210</td>
+          <td>60, 80, 90</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FFEFD5;"></div></td>
+          <td>PapayaWhip</td>
+          <td>Papaye</td>
+          <td><span class="hex-copy" data-hex="FFEFD5">#FFEFD5</span></td>
+          <td>255, 239, 213</td>
+          <td>37, 100, 92</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FFE4B5;"></div></td>
+          <td>Moccasin</td>
+          <td>Mocassin</td>
+          <td><span class="hex-copy" data-hex="FFE4B5">#FFE4B5</span></td>
+          <td>255, 228, 181</td>
+          <td>38, 100, 85</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FFDAB9;"></div></td>
+          <td>PeachPuff</td>
+          <td>Pêche</td>
+          <td><span class="hex-copy" data-hex="FFDAB9">#FFDAB9</span></td>
+          <td>255, 218, 185</td>
+          <td>28, 100, 86</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#EEE8AA;"></div></td>
+          <td>PaleGoldenrod</td>
+          <td>Jaune doré pâle</td>
+          <td><span class="hex-copy" data-hex="EEE8AA">#EEE8AA</span></td>
+          <td>238, 232, 170</td>
+          <td>55, 67, 80</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#F0E68C;"></div></td>
+          <td>Khaki</td>
+          <td>Kaki</td>
+          <td><span class="hex-copy" data-hex="F0E68C">#F0E68C</span></td>
+          <td>240, 230, 140</td>
+          <td>54, 77, 75</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#BDB76B;"></div></td>
+          <td>DarkKhaki</td>
+          <td>Kaki foncé</td>
+          <td><span class="hex-copy" data-hex="BDB76B">#BDB76B</span></td>
+          <td>189, 183, 107</td>
+          <td>56, 38, 58</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- VIOLETS -->
+  <div class="section-card">
+    <div class="category-label">
+      <span class="category-dot"></span>
+      Violet
+    </div>
+    <h2>Violets / Mauves</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Aperçu</th>
+          <th>Nom (EN)</th>
+          <th>Nom (FR)</th>
+          <th>Hex</th>
+          <th>RGB</th>
+          <th>HSL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="swatch" style="background-color:#E6E6FA;"></div></td>
+          <td>Lavender</td>
+          <td>Lavande</td>
+          <td><span class="hex-copy" data-hex="E6E6FA">#E6E6FA</span></td>
+          <td>230, 230, 250</td>
+          <td>240, 67, 94</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#D8BFD8;"></div></td>
+          <td>Thistle</td>
+          <td>Chardon</td>
+          <td><span class="hex-copy" data-hex="D8BFD8">#D8BFD8</span></td>
+          <td>216, 191, 216</td>
+          <td>300, 24, 80</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#DDA0DD;"></div></td>
+          <td>Plum</td>
+          <td>Prune</td>
+          <td><span class="hex-copy" data-hex="DDA0DD">#DDA0DD</span></td>
+          <td>221, 160, 221</td>
+          <td>300, 47, 75</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#EE82EE;"></div></td>
+          <td>Violet</td>
+          <td>Violet clair</td>
+          <td><span class="hex-copy" data-hex="EE82EE">#EE82EE</span></td>
+          <td>238, 130, 238</td>
+          <td>300, 76, 72</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#DA70D6;"></div></td>
+          <td>Orchid</td>
+          <td>Orchidée</td>
+          <td><span class="hex-copy" data-hex="DA70D6">#DA70D6</span></td>
+          <td>218, 112, 214</td>
+          <td>302, 59, 65</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FF00FF;"></div></td>
+          <td>Fuchsia</td>
+          <td>Fuchsia</td>
+          <td><span class="hex-copy" data-hex="FF00FF">#FF00FF</span></td>
+          <td>255, 0, 255</td>
+          <td>300, 100, 50</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FF00FF;"></div></td>
+          <td>Magenta</td>
+          <td>Magenta</td>
+          <td><span class="hex-copy" data-hex="FF00FF">#FF00FF</span></td>
+          <td>255, 0, 255</td>
+          <td>300, 100, 50</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#BA55D3;"></div></td>
+          <td>MediumOrchid</td>
+          <td>Orchidée moyenne</td>
+          <td><span class="hex-copy" data-hex="BA55D3">#BA55D3</span></td>
+          <td>186, 85, 211</td>
+          <td>288, 59, 58</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#9370DB;"></div></td>
+          <td>MediumPurple</td>
+          <td>Violet moyen</td>
+          <td><span class="hex-copy" data-hex="9370DB">#9370DB</span></td>
+          <td>147, 112, 219</td>
+          <td>260, 60, 65</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#663399;"></div></td>
+          <td>RebeccaPurple</td>
+          <td>Violet Rebecca</td>
+          <td><span class="hex-copy" data-hex="663399">#663399</span></td>
+          <td>102, 51, 153</td>
+          <td>270, 50, 40</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#8A2BE2;"></div></td>
+          <td>BlueViolet</td>
+          <td>Bleu violet</td>
+          <td><span class="hex-copy" data-hex="8A2BE2">#8A2BE2</span></td>
+          <td>138, 43, 226</td>
+          <td>271, 76, 53</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#9400D3;"></div></td>
+          <td>DarkViolet</td>
+          <td>Violet foncé</td>
+          <td><span class="hex-copy" data-hex="9400D3">#9400D3</span></td>
+          <td>148, 0, 211</td>
+          <td>282, 100, 41</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#9932CC;"></div></td>
+          <td>DarkOrchid</td>
+          <td>Orchidée foncée</td>
+          <td><span class="hex-copy" data-hex="9932CC">#9932CC</span></td>
+          <td>153, 50, 204</td>
+          <td>280, 61, 50</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#8B008B;"></div></td>
+          <td>DarkMagenta</td>
+          <td>Magenta foncé</td>
+          <td><span class="hex-copy" data-hex="8B008B">#8B008B</span></td>
+          <td>139, 0, 139</td>
+          <td>300, 100, 27</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#800080;"></div></td>
+          <td>Purple</td>
+          <td>Pourpre</td>
+          <td><span class="hex-copy" data-hex="800080">#800080</span></td>
+          <td>128, 0, 128</td>
+          <td>300, 100, 25</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#4B0082;"></div></td>
+          <td>Indigo</td>
+          <td>Indigo</td>
+          <td><span class="hex-copy" data-hex="4B0082">#4B0082</span></td>
+          <td>75, 0, 130</td>
+          <td>275, 100, 25</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#6A5ACD;"></div></td>
+          <td>SlateBlue</td>
+          <td>Bleu ardoise</td>
+          <td><span class="hex-copy" data-hex="6A5ACD">#6A5ACD</span></td>
+          <td>106, 90, 205</td>
+          <td>248, 53, 58</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#483D8B;"></div></td>
+          <td>DarkSlateBlue</td>
+          <td>Bleu ardoise foncé</td>
+          <td><span class="hex-copy" data-hex="483D8B">#483D8B</span></td>
+          <td>72, 61, 139</td>
+          <td>248, 39, 39</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#7B68EE;"></div></td>
+          <td>MediumSlateBlue</td>
+          <td>Bleu ardoise moyen</td>
+          <td><span class="hex-copy" data-hex="7B68EE">#7B68EE</span></td>
+          <td>123, 104, 238</td>
+          <td>249, 80, 67</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- VERTS -->
+  <div class="section-card">
+    <div class="category-label">
+      <span class="category-dot"></span>
+      Vert
+    </div>
+    <h2>Verts</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Aperçu</th>
+          <th>Nom (EN)</th>
+          <th>Nom (FR)</th>
+          <th>Hex</th>
+          <th>RGB</th>
+          <th>HSL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="swatch" style="background-color:#ADFF2F;"></div></td>
+          <td>GreenYellow</td>
+          <td>Jaune vert</td>
+          <td><span class="hex-copy" data-hex="ADFF2F">#ADFF2F</span></td>
+          <td>173, 255, 47</td>
+          <td>84, 100, 59</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#7FFF00;"></div></td>
+          <td>Chartreuse</td>
+          <td>Chartreuse</td>
+          <td><span class="hex-copy" data-hex="7FFF00">#7FFF00</span></td>
+          <td>127, 255, 0</td>
+          <td>90, 100, 50</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#7CFC00;"></div></td>
+          <td>LawnGreen</td>
+          <td>Vert pelouse</td>
+          <td><span class="hex-copy" data-hex="7CFC00">#7CFC00</span></td>
+          <td>124, 252, 0</td>
+          <td>90, 100, 49</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#00FF00;"></div></td>
+          <td>Lime</td>
+          <td>Vert lime</td>
+          <td><span class="hex-copy" data-hex="00FF00">#00FF00</span></td>
+          <td>0, 255, 0</td>
+          <td>120, 100, 50</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#32CD32;"></div></td>
+          <td>LimeGreen</td>
+          <td>Vert citron vert</td>
+          <td><span class="hex-copy" data-hex="32CD32">#32CD32</span></td>
+          <td>50, 205, 50</td>
+          <td>120, 61, 50</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#98FB98;"></div></td>
+          <td>PaleGreen</td>
+          <td>Vert pâle</td>
+          <td><span class="hex-copy" data-hex="98FB98">#98FB98</span></td>
+          <td>152, 251, 152</td>
+          <td>120, 93, 79</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#90EE90;"></div></td>
+          <td>LightGreen</td>
+          <td>Vert clair</td>
+          <td><span class="hex-copy" data-hex="90EE90">#90EE90</span></td>
+          <td>144, 238, 144</td>
+          <td>120, 73, 75</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#00FA9A;"></div></td>
+          <td>MediumSpringGreen</td>
+          <td>Vert printemps moyen</td>
+          <td><span class="hex-copy" data-hex="00FA9A">#00FA9A</span></td>
+          <td>0, 250, 154</td>
+          <td>157, 100, 49</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#00FF7F;"></div></td>
+          <td>SpringGreen</td>
+          <td>Vert printemps</td>
+          <td><span class="hex-copy" data-hex="00FF7F">#00FF7F</span></td>
+          <td>0, 255, 127</td>
+          <td>150, 100, 50</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#3CB371;"></div></td>
+          <td>MediumSeaGreen</td>
+          <td>Vert mer moyen</td>
+          <td><span class="hex-copy" data-hex="3CB371">#3CB371</span></td>
+          <td>60, 179, 113</td>
+          <td>147, 50, 47</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#2E8B57;"></div></td>
+          <td>SeaGreen</td>
+          <td>Vert mer</td>
+          <td><span class="hex-copy" data-hex="2E8B57">#2E8B57</span></td>
+          <td>46, 139, 87</td>
+          <td>146, 50, 36</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#228B22;"></div></td>
+          <td>ForestGreen</td>
+          <td>Vert forêt</td>
+          <td><span class="hex-copy" data-hex="228B22">#228B22</span></td>
+          <td>34, 139, 34</td>
+          <td>120, 61, 34</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#008000;"></div></td>
+          <td>Green</td>
+          <td>Vert</td>
+          <td><span class="hex-copy" data-hex="008000">#008000</span></td>
+          <td>0, 128, 0</td>
+          <td>120, 100, 25</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#006400;"></div></td>
+          <td>DarkGreen</td>
+          <td>Vert foncé</td>
+          <td><span class="hex-copy" data-hex="006400">#006400</span></td>
+          <td>0, 100, 0</td>
+          <td>120, 100, 20</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#9ACD32;"></div></td>
+          <td>YellowGreen</td>
+          <td>Vert jaunâtre</td>
+          <td><span class="hex-copy" data-hex="9ACD32">#9ACD32</span></td>
+          <td>154, 205, 50</td>
+          <td>80, 61, 50</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#6B8E23;"></div></td>
+          <td>OliveDrab</td>
+          <td>Olive terne</td>
+          <td><span class="hex-copy" data-hex="6B8E23">#6B8E23</span></td>
+          <td>107, 142, 35</td>
+          <td>80, 60, 35</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#808000;"></div></td>
+          <td>Olive</td>
+          <td>Olive</td>
+          <td><span class="hex-copy" data-hex="808000">#808000</span></td>
+          <td>128, 128, 0</td>
+          <td>60, 100, 25</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#556B2F;"></div></td>
+          <td>DarkOliveGreen</td>
+          <td>Vert olive foncé</td>
+          <td><span class="hex-copy" data-hex="556B2F">#556B2F</span></td>
+          <td>85, 107, 47</td>
+          <td>82, 39, 30</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#66CDAA;"></div></td>
+          <td>MediumAquamarine</td>
+          <td>Aigue-marine moyenne</td>
+          <td><span class="hex-copy" data-hex="66CDAA">#66CDAA</span></td>
+          <td>102, 205, 170</td>
+          <td>160, 51, 60</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#8FBC8B;"></div></td>
+          <td>DarkSeaGreen</td>
+          <td>Vert mer foncé</td>
+          <td><span class="hex-copy" data-hex="8FBC8B">#8FBC8B</span></td>
+          <td>143, 188, 139</td>
+          <td>115, 27, 64</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#20B2AA;"></div></td>
+          <td>LightSeaGreen</td>
+          <td>Vert mer clair</td>
+          <td><span class="hex-copy" data-hex="20B2AA">#20B2AA</span></td>
+          <td>32, 178, 170</td>
+          <td>177, 70, 41</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#008B8B;"></div></td>
+          <td>DarkCyan</td>
+          <td>Cyan foncé</td>
+          <td><span class="hex-copy" data-hex="008B8B">#008B8B</span></td>
+          <td>0, 139, 139</td>
+          <td>180, 100, 27</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#008080;"></div></td>
+          <td>Teal</td>
+          <td>Sarcelle</td>
+          <td><span class="hex-copy" data-hex="008080">#008080</span></td>
+          <td>0, 128, 128</td>
+          <td>180, 100, 25</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- BLEUS -->
+  <div class="section-card">
+    <div class="category-label">
+      <span class="category-dot"></span>
+      Bleu
+    </div>
+    <h2>Bleus / Turquoises</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Aperçu</th>
+          <th>Nom (EN)</th>
+          <th>Nom (FR)</th>
+          <th>Hex</th>
+          <th>RGB</th>
+          <th>HSL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="swatch" style="background-color:#00FFFF;"></div></td>
+          <td>Aqua</td>
+          <td>Aqua</td>
+          <td><span class="hex-copy" data-hex="00FFFF">#00FFFF</span></td>
+          <td>0, 255, 255</td>
+          <td>180, 100, 50</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#00FFFF;"></div></td>
+          <td>Cyan</td>
+          <td>Cyan</td>
+          <td><span class="hex-copy" data-hex="00FFFF">#00FFFF</span></td>
+          <td>0, 255, 255</td>
+          <td>180, 100, 50</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#E0FFFF;"></div></td>
+          <td>LightCyan</td>
+          <td>Cyan clair</td>
+          <td><span class="hex-copy" data-hex="E0FFFF">#E0FFFF</span></td>
+          <td>224, 255, 255</td>
+          <td>180, 100, 94</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#AFEEEE;"></div></td>
+          <td>PaleTurquoise</td>
+          <td>Turquoise pâle</td>
+          <td><span class="hex-copy" data-hex="AFEEEE">#AFEEEE</span></td>
+          <td>175, 238, 238</td>
+          <td>180, 65, 81</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#7FFFD4;"></div></td>
+          <td>Aquamarine</td>
+          <td>Aigue-marine</td>
+          <td><span class="hex-copy" data-hex="7FFFD4">#7FFFD4</span></td>
+          <td>127, 255, 212</td>
+          <td>160, 100, 75</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#40E0D0;"></div></td>
+          <td>Turquoise</td>
+          <td>Turquoise</td>
+          <td><span class="hex-copy" data-hex="40E0D0">#40E0D0</span></td>
+          <td>64, 224, 208</td>
+          <td>174, 72, 56</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#48D1CC;"></div></td>
+          <td>MediumTurquoise</td>
+          <td>Turquoise moyenne</td>
+          <td><span class="hex-copy" data-hex="48D1CC">#48D1CC</span></td>
+          <td>72, 209, 204</td>
+          <td>178, 60, 55</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#00CED1;"></div></td>
+          <td>DarkTurquoise</td>
+          <td>Turquoise foncée</td>
+          <td><span class="hex-copy" data-hex="00CED1">#00CED1</span></td>
+          <td>0, 206, 209</td>
+          <td>181, 100, 41</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#5F9EA0;"></div></td>
+          <td>CadetBlue</td>
+          <td>Bleu cadet</td>
+          <td><span class="hex-copy" data-hex="5F9EA0">#5F9EA0</span></td>
+          <td>95, 158, 160</td>
+          <td>182, 25, 50</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#4682B4;"></div></td>
+          <td>SteelBlue</td>
+          <td>Bleu acier</td>
+          <td><span class="hex-copy" data-hex="4682B4">#4682B4</span></td>
+          <td>70, 130, 180</td>
+          <td>207, 44, 49</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#B0C4DE;"></div></td>
+          <td>LightSteelBlue</td>
+          <td>Bleu acier clair</td>
+          <td><span class="hex-copy" data-hex="B0C4DE">#B0C4DE</span></td>
+          <td>176, 196, 222</td>
+          <td>214, 41, 78</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#B0E0E6;"></div></td>
+          <td>PowderBlue</td>
+          <td>Bleu poudre</td>
+          <td><span class="hex-copy" data-hex="B0E0E6">#B0E0E6</span></td>
+          <td>176, 224, 230</td>
+          <td>187, 52, 80</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#ADD8E6;"></div></td>
+          <td>LightBlue</td>
+          <td>Bleu clair</td>
+          <td><span class="hex-copy" data-hex="ADD8E6">#ADD8E6</span></td>
+          <td>173, 216, 230</td>
+          <td>195, 53, 79</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#87CEEB;"></div></td>
+          <td>SkyBlue</td>
+          <td>Bleu ciel</td>
+          <td><span class="hex-copy" data-hex="87CEEB">#87CEEB</span></td>
+          <td>135, 206, 235</td>
+          <td>197, 71, 73</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#87CEFA;"></div></td>
+          <td>LightSkyBlue</td>
+          <td>Bleu ciel clair</td>
+          <td><span class="hex-copy" data-hex="87CEFA">#87CEFA</span></td>
+          <td>135, 206, 250</td>
+          <td>203, 92, 75</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#00BFFF;"></div></td>
+          <td>DeepSkyBlue</td>
+          <td>Bleu ciel profond</td>
+          <td><span class="hex-copy" data-hex="00BFFF">#00BFFF</span></td>
+          <td>0, 191, 255</td>
+          <td>195, 100, 50</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#1E90FF;"></div></td>
+          <td>DodgerBlue</td>
+          <td>Bleu dodger</td>
+          <td><span class="hex-copy" data-hex="1E90FF">#1E90FF</span></td>
+          <td>30, 144, 255</td>
+          <td>210, 100, 56</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#6495ED;"></div></td>
+          <td>CornflowerBlue</td>
+          <td>Bleu bleuet</td>
+          <td><span class="hex-copy" data-hex="6495ED">#6495ED</span></td>
+          <td>100, 149, 237</td>
+          <td>219, 79, 66</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#7B68EE;"></div></td>
+          <td>MediumSlateBlue</td>
+          <td>Bleu ardoise moyen</td>
+          <td><span class="hex-copy" data-hex="7B68EE">#7B68EE</span></td>
+          <td>123, 104, 238</td>
+          <td>249, 80, 67</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#4169E1;"></div></td>
+          <td>RoyalBlue</td>
+          <td>Bleu royal</td>
+          <td><span class="hex-copy" data-hex="4169E1">#4169E1</span></td>
+          <td>65, 105, 225</td>
+          <td>225, 73, 57</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#0000FF;"></div></td>
+          <td>Blue</td>
+          <td>Bleu</td>
+          <td><span class="hex-copy" data-hex="0000FF">#0000FF</span></td>
+          <td>0, 0, 255</td>
+          <td>240, 100, 50</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#0000CD;"></div></td>
+          <td>MediumBlue</td>
+          <td>Bleu moyen</td>
+          <td><span class="hex-copy" data-hex="0000CD">#0000CD</span></td>
+          <td>0, 0, 205</td>
+          <td>240, 100, 40</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#00008B;"></div></td>
+          <td>DarkBlue</td>
+          <td>Bleu foncé</td>
+          <td><span class="hex-copy" data-hex="00008B">#00008B</span></td>
+          <td>0, 0, 139</td>
+          <td>240, 100, 27</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#000080;"></div></td>
+          <td>Navy</td>
+          <td>Bleu marine</td>
+          <td><span class="hex-copy" data-hex="000080">#000080</span></td>
+          <td>0, 0, 128</td>
+          <td>240, 100, 25</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#191970;"></div></td>
+          <td>MidnightBlue</td>
+          <td>Bleu nuit</td>
+          <td><span class="hex-copy" data-hex="191970">#191970</span></td>
+          <td>25, 25, 112</td>
+          <td>240, 64, 27</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- MARRONS -->
+  <div class="section-card">
+    <div class="category-label">
+      <span class="category-dot"></span>
+      Marron / Bruns
+    </div>
+    <h2>Marrons / Bruns</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Aperçu</th>
+          <th>Nom (EN)</th>
+          <th>Nom (FR)</th>
+          <th>Hex</th>
+          <th>RGB</th>
+          <th>HSL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="swatch" style="background-color:#FFF8DC;"></div></td>
+          <td>Cornsilk</td>
+          <td>Soie de maïs</td>
+          <td><span class="hex-copy" data-hex="FFF8DC">#FFF8DC</span></td>
+          <td>255, 248, 220</td>
+          <td>48, 100, 93</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FFEBCD;"></div></td>
+          <td>BlanchedAlmond</td>
+          <td>Amande blanchie</td>
+          <td><span class="hex-copy" data-hex="FFEBCD">#FFEBCD</span></td>
+          <td>255, 235, 205</td>
+          <td>36, 100, 90</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FFE4C4;"></div></td>
+          <td>Bisque</td>
+          <td>Biscuit</td>
+          <td><span class="hex-copy" data-hex="FFE4C4">#FFE4C4</span></td>
+          <td>255, 228, 196</td>
+          <td>33, 100, 88</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FFDEAD;"></div></td>
+          <td>NavajoWhite</td>
+          <td>Blanc navajo</td>
+          <td><span class="hex-copy" data-hex="FFDEAD">#FFDEAD</span></td>
+          <td>255, 222, 173</td>
+          <td>36, 100, 84</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#F5DEB3;"></div></td>
+          <td>Wheat</td>
+          <td>Blé</td>
+          <td><span class="hex-copy" data-hex="F5DEB3">#F5DEB3</span></td>
+          <td>245, 222, 179</td>
+          <td>39, 77, 83</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#DEB887;"></div></td>
+          <td>BurlyWood</td>
+          <td>Bois robuste</td>
+          <td><span class="hex-copy" data-hex="DEB887">#DEB887</span></td>
+          <td>222, 184, 135</td>
+          <td>34, 57, 70</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#D2B48C;"></div></td>
+          <td>Tan</td>
+          <td>Fauve</td>
+          <td><span class="hex-copy" data-hex="D2B48C">#D2B48C</span></td>
+          <td>210, 180, 140</td>
+          <td>34, 44, 69</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#BC8F8F;"></div></td>
+          <td>RosyBrown</td>
+          <td>Brun rosé</td>
+          <td><span class="hex-copy" data-hex="BC8F8F">#BC8F8F</span></td>
+          <td>188, 143, 143</td>
+          <td>0, 25, 65</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#F4A460;"></div></td>
+          <td>SandyBrown</td>
+          <td>Brun sable</td>
+          <td><span class="hex-copy" data-hex="F4A460">#F4A460</span></td>
+          <td>244, 164, 96</td>
+          <td>28, 87, 67</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#DAA520;"></div></td>
+          <td>Goldenrod</td>
+          <td>Verge d'or</td>
+          <td><span class="hex-copy" data-hex="DAA520">#DAA520</span></td>
+          <td>218, 165, 32</td>
+          <td>43, 74, 49</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#B8860B;"></div></td>
+          <td>DarkGoldenrod</td>
+          <td>Verge d'or foncée</td>
+          <td><span class="hex-copy" data-hex="B8860B">#B8860B</span></td>
+          <td>184, 134, 11</td>
+          <td>43, 89, 38</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#CD853F;"></div></td>
+          <td>Peru</td>
+          <td>Brun Pérou</td>
+          <td><span class="hex-copy" data-hex="CD853F">#CD853F</span></td>
+          <td>205, 133, 63</td>
+          <td>30, 59, 53</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#D2691E;"></div></td>
+          <td>Chocolate</td>
+          <td>Chocolat</td>
+          <td><span class="hex-copy" data-hex="D2691E">#D2691E</span></td>
+          <td>210, 105, 30</td>
+          <td>25, 75, 47</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#8B4513;"></div></td>
+          <td>SaddleBrown</td>
+          <td>Brun selle</td>
+          <td><span class="hex-copy" data-hex="8B4513">#8B4513</span></td>
+          <td>139, 69, 19</td>
+          <td>25, 76, 31</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#A0522D;"></div></td>
+          <td>Sienna</td>
+          <td>Terre de Sienne</td>
+          <td><span class="hex-copy" data-hex="A0522D">#A0522D</span></td>
+          <td>160, 82, 45</td>
+          <td>19, 56, 40</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#A52A2A;"></div></td>
+          <td>Brown</td>
+          <td>Brun</td>
+          <td><span class="hex-copy" data-hex="A52A2A">#A52A2A</span></td>
+          <td>165, 42, 42</td>
+          <td>0, 59, 41</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#800000;"></div></td>
+          <td>Maroon</td>
+          <td>Marron</td>
+          <td><span class="hex-copy" data-hex="800000">#800000</span></td>
+          <td>128, 0, 0</td>
+          <td>0, 100, 25</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- BLANCS -->
+  <div class="section-card">
+    <div class="category-label">
+      <span class="category-dot"></span>
+      Blancs
+    </div>
+    <h2>Blancs / Crèmes</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Aperçu</th>
+          <th>Nom (EN)</th>
+          <th>Nom (FR)</th>
+          <th>Hex</th>
+          <th>RGB</th>
+          <th>HSL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="swatch" style="background-color:#FFFFFF;"></div></td>
+          <td>White</td>
+          <td>Blanc</td>
+          <td><span class="hex-copy" data-hex="FFFFFF">#FFFFFF</span></td>
+          <td>255, 255, 255</td>
+          <td>0, 0, 100</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FFFAFA;"></div></td>
+          <td>Snow</td>
+          <td>Neige</td>
+          <td><span class="hex-copy" data-hex="FFFAFA">#FFFAFA</span></td>
+          <td>255, 250, 250</td>
+          <td>0, 100, 99</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#F0FFF0;"></div></td>
+          <td>HoneyDew</td>
+          <td>Miellat</td>
+          <td><span class="hex-copy" data-hex="F0FFF0">#F0FFF0</span></td>
+          <td>240, 255, 240</td>
+          <td>120, 100, 97</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#F5FFFA;"></div></td>
+          <td>MintCream</td>
+          <td>Crème de menthe</td>
+          <td><span class="hex-copy" data-hex="F5FFFA">#F5FFFA</span></td>
+          <td>245, 255, 250</td>
+          <td>150, 100, 98</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#F0FFFF;"></div></td>
+          <td>Azure</td>
+          <td>Azur</td>
+          <td><span class="hex-copy" data-hex="F0FFFF">#F0FFFF</span></td>
+          <td>240, 255, 255</td>
+          <td>180, 100, 97</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#F0F8FF;"></div></td>
+          <td>AliceBlue</td>
+          <td>Bleu Alice</td>
+          <td><span class="hex-copy" data-hex="F0F8FF">#F0F8FF</span></td>
+          <td>240, 248, 255</td>
+          <td>208, 100, 97</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#F8F8FF;"></div></td>
+          <td>GhostWhite</td>
+          <td>Blanc fantôme</td>
+          <td><span class="hex-copy" data-hex="F8F8FF">#F8F8FF</span></td>
+          <td>248, 248, 255</td>
+          <td>240, 100, 99</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#F5F5F5;"></div></td>
+          <td>WhiteSmoke</td>
+          <td>Blanc fumée</td>
+          <td><span class="hex-copy" data-hex="F5F5F5">#F5F5F5</span></td>
+          <td>245, 245, 245</td>
+          <td>0, 0, 96</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FFF5EE;"></div></td>
+          <td>SeaShell</td>
+          <td>Coquille</td>
+          <td><span class="hex-copy" data-hex="FFF5EE">#FFF5EE</span></td>
+          <td>255, 245, 238</td>
+          <td>25, 100, 97</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#F5F5DC;"></div></td>
+          <td>Beige</td>
+          <td>Beige</td>
+          <td><span class="hex-copy" data-hex="F5F5DC">#F5F5DC</span></td>
+          <td>245, 245, 220</td>
+          <td>60, 56, 91</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FDF5E6;"></div></td>
+          <td>OldLace</td>
+          <td>Vieille dentelle</td>
+          <td><span class="hex-copy" data-hex="FDF5E6">#FDF5E6</span></td>
+          <td>253, 245, 230</td>
+          <td>39, 85, 95</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FFFAF0;"></div></td>
+          <td>FloralWhite</td>
+          <td>Blanc floral</td>
+          <td><span class="hex-copy" data-hex="FFFAF0">#FFFAF0</span></td>
+          <td>255, 250, 240</td>
+          <td>40, 100, 97</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FFFFF0;"></div></td>
+          <td>Ivory</td>
+          <td>Ivoire</td>
+          <td><span class="hex-copy" data-hex="FFFFF0">#FFFFF0</span></td>
+          <td>255, 255, 240</td>
+          <td>60, 100, 97</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FAEBD7;"></div></td>
+          <td>AntiqueWhite</td>
+          <td>Blanc antique</td>
+          <td><span class="hex-copy" data-hex="FAEBD7">#FAEBD7</span></td>
+          <td>250, 235, 215</td>
+          <td>34, 78, 91</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FAF0E6;"></div></td>
+          <td>Linen</td>
+          <td>Lin</td>
+          <td><span class="hex-copy" data-hex="FAF0E6">#FAF0E6</span></td>
+          <td>250, 240, 230</td>
+          <td>30, 67, 94</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FFF0F5;"></div></td>
+          <td>LavenderBlush</td>
+          <td>Lavande rosée</td>
+          <td><span class="hex-copy" data-hex="FFF0F5">#FFF0F5</span></td>
+          <td>255, 240, 245</td>
+          <td>340, 100, 97</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#FFE4E1;"></div></td>
+          <td>MistyRose</td>
+          <td>Rose brumeux</td>
+          <td><span class="hex-copy" data-hex="FFE4E1">#FFE4E1</span></td>
+          <td>255, 228, 225</td>
+          <td>6, 100, 94</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- GRIS -->
+  <div class="section-card">
+    <div class="category-label">
+      <span class="category-dot"></span>
+      Gris / Noirs
+    </div>
+    <h2>Gris / Noirs</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Aperçu</th>
+          <th>Nom (EN)</th>
+          <th>Nom (FR)</th>
+          <th>Hex</th>
+          <th>RGB</th>
+          <th>HSL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="swatch" style="background-color:#DCDCDC;"></div></td>
+          <td>Gainsboro</td>
+          <td>Gainsboro</td>
+          <td><span class="hex-copy" data-hex="DCDCDC">#DCDCDC</span></td>
+          <td>220, 220, 220</td>
+          <td>0, 0, 86</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#D3D3D3;"></div></td>
+          <td>LightGray</td>
+          <td>Gris clair</td>
+          <td><span class="hex-copy" data-hex="D3D3D3">#D3D3D3</span></td>
+          <td>211, 211, 211</td>
+          <td>0, 0, 83</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#C0C0C0;"></div></td>
+          <td>Silver</td>
+          <td>Argent</td>
+          <td><span class="hex-copy" data-hex="C0C0C0">#C0C0C0</span></td>
+          <td>192, 192, 192</td>
+          <td>0, 0, 75</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#A9A9A9;"></div></td>
+          <td>DarkGray</td>
+          <td>Gris foncé</td>
+          <td><span class="hex-copy" data-hex="A9A9A9">#A9A9A9</span></td>
+          <td>169, 169, 169</td>
+          <td>0, 0, 66</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#808080;"></div></td>
+          <td>Gray</td>
+          <td>Gris</td>
+          <td><span class="hex-copy" data-hex="808080">#808080</span></td>
+          <td>128, 128, 128</td>
+          <td>0, 0, 50</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#696969;"></div></td>
+          <td>DimGray</td>
+          <td>Gris terne</td>
+          <td><span class="hex-copy" data-hex="696969">#696969</span></td>
+          <td>105, 105, 105</td>
+          <td>0, 0, 41</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#778899;"></div></td>
+          <td>LightSlateGray</td>
+          <td>Gris ardoise clair</td>
+          <td><span class="hex-copy" data-hex="778899">#778899</span></td>
+          <td>119, 136, 153</td>
+          <td>210, 14, 53</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#708090;"></div></td>
+          <td>SlateGray</td>
+          <td>Gris ardoise</td>
+          <td><span class="hex-copy" data-hex="708090">#708090</span></td>
+          <td>112, 128, 144</td>
+          <td>210, 13, 50</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#2F4F4F;"></div></td>
+          <td>DarkSlateGray</td>
+          <td>Gris ardoise foncé</td>
+          <td><span class="hex-copy" data-hex="2F4F4F">#2F4F4F</span></td>
+          <td>47, 79, 79</td>
+          <td>180, 25, 25</td>
+        </tr>
+        <tr>
+          <td><div class="swatch" style="background-color:#000000;"></div></td>
+          <td>Black</td>
+          <td>Noir</td>
+          <td><span class="hex-copy" data-hex="000000">#000000</span></td>
+          <td>0, 0, 0</td>
+          <td>0, 0, 0</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    (function () {
+      const hexNodes = document.querySelectorAll(".hex-copy");
+
+      hexNodes.forEach((el) => {
+        el.addEventListener("click", async () => {
+          const hex = "#" + el.dataset.hex;
+          try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              await navigator.clipboard.writeText(hex);
+            } else {
+              // Fallback
+              const tmp = document.createElement("textarea");
+              tmp.value = hex;
+              document.body.appendChild(tmp);
+              tmp.select();
+              document.execCommand("copy");
+              document.body.removeChild(tmp);
+            }
+
+            hexNodes.forEach(n => n.classList.remove("copied"));
+            el.classList.add("copied");
+            setTimeout(() => el.classList.remove("copied"), 1500);
+          } catch (e) {
+            console.error("Impossible de copier le code hex", e);
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
