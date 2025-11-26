@@ -25,6 +25,8 @@ You can freely edit `index.html` to:
 - add or remove colors,
 - change the visual style.
 
+Enjoy!!! :)
+
 ---
 
 ## Référence de couleurs HTML
@@ -52,3 +54,5 @@ Vous pouvez modifier librement `index.html` pour:
 - ajuster les noms français,
 - ajouter/retirer des couleurs,
 - adapter le style de la page.
+
+Enjoy!!! :)
